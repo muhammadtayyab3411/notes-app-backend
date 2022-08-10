@@ -1,0 +1,22 @@
+const express = require("express");
+const app = express();
+require("./db/conn"); // connect to db
+const cookieParser = require("cookie-parser");
+const user = require("./routes/user");
+const notes = require("./routes/notes");
+const port = 8000;
+
+app.use(express.json());
+app.use(cookieParser());
+
+// Routes
+app.use("/user", user);
+app.use("/notes", notes);
+
+app.get("/", (req, res) => {
+  res.send("hello from notes backend");
+});
+
+app.listen(port, () => {
+  console.log(`Listening on http://localhost:${port}`);
+});
