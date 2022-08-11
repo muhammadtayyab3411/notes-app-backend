@@ -19,6 +19,11 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+    const auth_token = req.cookies.auth_token;
+    if (auth_token) {
+      res.status(403).send({ error: "You are already signed in!" });
+    }
+
     const { name, user_name, email, password, confirm_password } = req.body;
     try {
       try {
