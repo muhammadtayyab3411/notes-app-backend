@@ -12,7 +12,7 @@ const port = process.env.PORT || 8000;
 // middlewares
 app.use(express.json());
 app.use(cookieParser());
-app.user(
+app.use(
   cors({
     origin: "*",
   })
