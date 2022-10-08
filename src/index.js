@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const user = require("./routes/user");
 const notes = require("./routes/notes");
+const session = require("express-session");
 
 const port = process.env.PORT || 8000;
 
@@ -16,6 +17,18 @@ app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
+  })
+);
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: "session",
+    cookie: {
+      maxAge: 1000 * 60 * 60,
+      sameSite: "lax",
+      secure: true,
+    },
   })
 );
 
