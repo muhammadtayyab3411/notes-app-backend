@@ -12,7 +12,6 @@ const port = process.env.PORT || 8000;
 
 // middlewares
 app.use(express.json());
-app.use(cookieParser());
 app.use(
   cors({
     origin: "http://localhost:3000",
@@ -20,6 +19,7 @@ app.use(
     exposedHeaders: ["Set-Cookie", "Date", "ETag"],
   })
 );
+app.use(cookieParser());
 app.use(
   session({
     resave: false,
