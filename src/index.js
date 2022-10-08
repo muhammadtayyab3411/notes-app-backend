@@ -26,8 +26,8 @@ app.use(
     secret: "session",
     cookie: {
       maxAge: 1000 * 60 * 60,
-      sameSite: "none",
-      secure: false,
+      sameSite: "lux",
+      secure: true,
     },
   })
 );
