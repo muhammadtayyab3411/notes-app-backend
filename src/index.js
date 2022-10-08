@@ -16,14 +16,13 @@ app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
-    exposedHeaders: ["Set-Cookie", "Date", "ETag"],
   })
 );
 app.use(cookieParser());
 app.use(
   session({
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
     secret: "session",
     cookie: {
       maxAge: 1000 * 60 * 60,

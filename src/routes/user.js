@@ -85,7 +85,7 @@ router.post(
             res.cookie("auth_token", auth_token, {
               expires: new Date(Date.now() + 60000 * 30),
               httpOnly: true,
-              secure: false,
+              secure: true,
             });
             res.status(200).send({ message: "Login successfull" });
           } else {
