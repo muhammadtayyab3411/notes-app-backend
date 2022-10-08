@@ -17,6 +17,7 @@ app.use(
   cors({
     origin: "http://localhost:3000",
     credentials: true,
+    exposedHeaders: ["Set-Cookie", "Date", "ETag"],
   })
 );
 app.use(
