@@ -86,7 +86,7 @@ router.post(
               expires: new Date(Date.now() + 60000 * 30),
               httpOnly: true,
             });
-            res.status(200).send({ message: "Login successfull" });
+            res.status(200).send({ message: "Login successfull", auth_token });
           } else {
             res.status(406).send({ error: "Invalid email or password" });
           }
