@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 require("./db/conn"); // connect to db
 const cookieParser = require("cookie-parser");
+const cookiesMiddleware = require("universal-cookie-express");
 const cors = require("cors");
 const user = require("./routes/user");
 const notes = require("./routes/notes");
@@ -19,6 +20,7 @@ app.use(
   })
 );
 app.use(cookieParser());
+app.use(cookiesMiddleware());
 // app.use(
 //   session({
 //     resave: true,
