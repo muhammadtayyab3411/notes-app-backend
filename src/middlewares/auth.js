@@ -3,7 +3,8 @@ const jwt = require("jsonwebtoken");
 
 const auth = async (req, res, next) => {
   try {
-    const auth_token = req.cookies.auth_token;
+    // const auth_token = req.cookies.auth_token;
+    const auth_token = req.auth_token;
     if (!auth_token) {
       res.status(401).send({ error: "Please login to continue" });
     } else {

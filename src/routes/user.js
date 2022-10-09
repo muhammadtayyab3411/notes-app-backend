@@ -86,18 +86,30 @@ router.post(
               expires: new Date(Date.now() + 60000 * 30),
               httpOnly: true,
             });
-            res.status(200).send({ message: "Login successfull", auth_token });
+            res
+              .status(200)
+              .send({
+                message: "Login successfull",
+                auth_token,
+                success: true,
+              });
           } else {
-            res.status(406).send({ error: "Invalid email or password" });
+            res
+              .status(406)
+              .send({ error: "Invalid email or password", success: false });
           }
         } else {
-          res.status(406).send({ message: "Invalid email or password" });
+          res
+            .status(406)
+            .send({ message: "Invalid email or password", success: false });
         }
       } catch (error) {
-        res.status(406).send({ error: "Invalid email or password" });
+        res
+          .status(406)
+          .send({ error: "Invalid email or password", success: false });
       }
     } catch (error) {
-      res.status(500).send({ error: "Internal server error" });
+      res.status(500).send({ error: "Internal server error", success: false });
     }
   }
 );
